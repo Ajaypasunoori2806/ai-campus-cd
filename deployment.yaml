@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-campus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-campus
+  template:
+    metadata:
+      labels:
+        app: ai-campus
+    spec:
+      containers:
+      - name: ai-campus
+        image: aicampusacr2806.azurecr.io/ai-campus-app:latest
+        ports:
+        - containerPort: 8000
